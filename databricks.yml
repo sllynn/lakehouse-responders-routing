@@ -1,0 +1,50 @@
+# This is a Databricks asset bundle definition for routing_engine.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: routing_engine
+  uuid: 22b137ad-f4d0-4526-9381-bc6437a9c275
+  databricks_cli_version: ">= 0.248.0"
+
+experimental:
+  python:
+    # Activate virtual environment before loading resources defined in Python.
+    # If disabled, defaults to using the Python interpreter available in the current shell.
+    venv_path: .venv
+    # Functions called to load resources defined in Python. See resources/__init__.py
+    resources:
+      - "resources:load_resources"
+
+artifacts:
+  default:
+    type: whl
+    path: .
+    # We use timestamp as Local version identifier (https://peps.python.org/pep-0440/#local-version-identifiers.)
+    # to ensure that changes to wheel package are picked up when used on all-purpose clusters
+    build: LOCAL_VERSION=$(date +%Y%m%d.%H%M%S) uv build
+
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+
+targets:
+  dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
+    mode: development
+    default: true
+    workspace:
+      host: https://e2-demo-emea.cloud.databricks.com
+
+  prod:
+    mode: production
+    workspace:
+      host: https://e2-demo-emea.cloud.databricks.com
+      # We explicitly specify /Workspace/Users/stuart.lynn@databricks.com to make sure we only have a single copy.
+      root_path: /Workspace/Users/stuart.lynn@databricks.com/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - user_name: stuart.lynn@databricks.com
+        level: CAN_MANAGE
+    run_as:
+      user_name: stuart.lynn@databricks.com

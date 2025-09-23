@@ -1,0 +1,29 @@
+version = 1
+revision = 3
+requires-python = ">=3.10"
+
+[manifest]
+overrides = [{ name = "pyspark", marker = "sys_platform == 'never'" }]
+
+[[package]]
+name = "databricks-bundles"
+version = "0.269.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c2/07/ae09aac6cb3f49d9d013a951f3fd2fc1cec903a7b6c84104a3b0e192938a/databricks_bundles-0.269.0.tar.gz", hash = "sha256:b5f75ccade35e4793e0c055080ea1ed306abb2998030bfc629644265c5581e68", size = 79785, upload-time = "2025-09-17T14:18:19.344Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c1/fc/0c7f4b3d6799e520a774b233bf8fea2ec6e329c3b0bc4bebe0d24e78c5d8/databricks_bundles-0.269.0-py3-none-any.whl", hash = "sha256:3c8e401bbf513dba0c40bc99e4af5100a42924290c6a6b74ea6a8215790669ab", size = 163286, upload-time = "2025-09-17T14:18:17.903Z" },
+]
+
+[[package]]
+name = "routing-engine"
+source = { editable = "." }
+
+[package.dev-dependencies]
+dev = [
+    { name = "databricks-bundles" },
+]
+
+[package.metadata]
+
+[package.metadata.requires-dev]
+dev = [{ name = "databricks-bundles", specifier = "==0.269.0" }]
