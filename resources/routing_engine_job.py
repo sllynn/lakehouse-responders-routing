@@ -8,7 +8,8 @@ The main job for routing_engine.
 
 routing_engine_job = Job.from_dict({
     'name': 'Routing engine',
-    'tasks': [{'task_key': 'build_valhalla',
+    'tasks': [
+     {'task_key': 'build_valhalla',
       'notebook_task': {'notebook_path': './src/valhalla/install-valhalla.py',
        'base_parameters': {'VOLUME_PATH': '/Volumes/{{job.parameters.CATALOG}}/{{job.parameters.SCHEMA}}/{{job.parameters.VOLUME}}'},
        'source': 'WORKSPACE'},
@@ -19,7 +20,12 @@ routing_engine_job = Job.from_dict({
        'base_parameters': {'VOLUME_PATH': '/Volumes/{{job.parameters.CATALOG}}//{{job.parameters.SCHEMA}}/{{job.parameters.VOLUME}}'},
        'source': 'WORKSPACE'},
       'existing_cluster_id': '0905-131122-v6vl4ob1'},
+     {'task_key': 'build_entities',
+       'notebook_task': {'notebook_path': './src/lakebase/scripts/build_entities.py',
+       'base_parameters': {'VOLUME_PATH': '/Volumes/{{job.parameters.CATALOG}}/{{job.parameters.SCHEMA}}/{{job.parameters.VOLUME}}'},
+        'source': 'WORKSPACE'}},
      {'task_key': 'initialise_db',
+      'depends_on': [{'task_key': 'build_entities'}],
       'notebook_task': {'notebook_path': './src/lakebase/initialise.py',
        'source': 'WORKSPACE'}},
      {'task_key': 'populate_db',

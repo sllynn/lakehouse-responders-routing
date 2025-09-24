@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "routing_engine"
-requires-python = ">=3.10"
+requires-python = ">=3.12,<3.13"
 description = "wheel file based on routing_engine"
 
 # Dependencies in case the output wheel file is used as a library dependency.

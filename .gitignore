@@ -183,3 +183,7 @@ logs/
 # *.parquet
 # data/
 # datasets/
+
+*.pyi
+
+# Entities is now managed as a git submodule

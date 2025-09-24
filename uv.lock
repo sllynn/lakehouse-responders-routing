@@ -1,6 +1,6 @@
 version = 1
 revision = 3
-requires-python = ">=3.10"
+requires-python = "==3.12.*"
 
 [manifest]
 overrides = [{ name = "pyspark", marker = "sys_platform == 'never'" }]
