@@ -43,7 +43,7 @@ from plan_processor import PlanProcessor
 TICK_INTERVAL_SECONDS = 0  # How often to re-plan
 DISTANCE_PER_TICK_M = 200
 OPTIMIZATION_GOAL = "time"  # or "distance"
-VRP_TIMEOUT_S = 5
+VRP_TIMEOUT_S = 10
 VALHALLA_CONFIG_PATH = f"{volume_path}/tiles/valhalla.json"
 DB_URL = dbutils.widgets.get("DB_URL")
 

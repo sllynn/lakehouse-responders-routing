@@ -50,7 +50,7 @@ class PlanProcessor:
         
         distance = v_location.distance(e_location).iloc[0]
         
-        return distance < threshold_meters / 2
+        return distance < threshold_meters
 
     def process_solution(
         self, 
