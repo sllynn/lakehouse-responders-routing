@@ -1,0 +1,3 @@
+[submodule "src/lakebase/entities"]
+	path = src/lakebase/entities
+	url = git@github.com:sllynn/lakehouse-responders-entities.git
