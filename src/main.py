@@ -112,9 +112,9 @@ dbutils.notebook.exit("0")
 # COMMAND ----------
 
 dbutils.widgets.text("CATALOG", "users")
-dbutils.widgets.text("SCHEMA", "stuart_lynn")
-dbutils.widgets.text("VOLUME_PATH", f"/Volumes/users/stuart_lynn/valhalla_berlin/")
-dbutils.widgets.text("DB_URL", f"postgresql+psycopg2://user_f2eaee76:9d1fc9a3e8c64e57928c3f0e3b8f9a06@instance-d4b00b8d-d39d-42ce-864b-0592398b32e9.database.cloud.databricks.com:5432/responders")
+dbutils.widgets.text("SCHEMA", "")
+dbutils.widgets.text("VOLUME_PATH", "")
+dbutils.widgets.text("DB_URL", "")
 
 # COMMAND ----------
 

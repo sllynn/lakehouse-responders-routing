@@ -14,8 +14,8 @@
 # COMMAND ----------
 
 # DBTITLE 1,Set Parameters
-dbutils.widgets.text("PBF_URL", "https://download.geofabrik.de/europe/spain-latest.osm.pbf", "PBF URL")
-dbutils.widgets.text("VOLUME_PATH", "/Volumes/timo/geospatial/valhalla_spain", "Target Volume Path")
+dbutils.widgets.text("PBF_URL", "", "PBF URL")
+dbutils.widgets.text("VOLUME_PATH", "", "Target Volume Path")
 
 pbf_url = dbutils.widgets.get("PBF_URL")
 volume_path = dbutils.widgets.get("VOLUME_PATH")

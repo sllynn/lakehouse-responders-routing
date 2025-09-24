@@ -513,8 +513,8 @@ dbutils.notebook.exit("0")
 
 # COMMAND ----------
 
-dbutils.widgets.text("DB_USER", "user_7d08fc25")
-dbutils.widgets.text("DB_PASSWORD", "0ef4872b375849d6a47cc939db1359a5")
-dbutils.widgets.text("DB_HOST", "instance-d4b00b8d-d39d-42ce-864b-0592398b32e9.database.cloud.databricks.com")
+dbutils.widgets.text("DB_USER", "")
+dbutils.widgets.text("DB_PASSWORD", "")
+dbutils.widgets.text("DB_HOST", "")
 dbutils.widgets.text("DB_NAME", "responders")
-dbutils.widgets.text("VOLUME_PATH", "/Volumes/users/stuart_lynn/valhalla_berlin")
+dbutils.widgets.text("VOLUME_PATH", "")
