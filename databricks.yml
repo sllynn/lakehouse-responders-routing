@@ -46,5 +46,12 @@ targets:
     permissions:
       - user_name: stuart.lynn@databricks.com
         level: CAN_MANAGE
+      - user_name: matt.slack@databricks.com
+        level: CAN_MANAGE
+      - user_name: sahil.grover@databricks.com
+        level: CAN_MANAGE
+      - user_name: timo.roest@databricks.com
+        level: CAN_MANAGE
+      - user_name: rich.li@databricks.com
     run_as:
       user_name: stuart.lynn@databricks.com

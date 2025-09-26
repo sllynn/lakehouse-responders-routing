@@ -8,6 +8,28 @@ The main job for routing_engine.
 
 routing_engine_job = Job.from_dict({
     'name': 'Routing engine',
+    'permissions': [
+      {
+        'user_name': 'stuart.lynn@databricks.com',
+        'level': 'CAN_MANAGE'
+      },
+      {
+        'user_name': 'matt.slack@databricks.com',
+        'level': 'CAN_MANAGE'
+      },
+      {
+        'user_name': 'sahil.grover@databricks.com',
+        'level': 'CAN_MANAGE'
+      },
+      {
+        'user_name': 'timo.roest@databricks.com',
+        'level': 'CAN_MANAGE'
+      },
+      {
+        'user_name': 'rich.li@databricks.com',
+        'level': 'CAN_MANAGE'
+      },
+    ],
     'tasks': [
      {'task_key': 'build_valhalla',
       'notebook_task': {'notebook_path': './src/valhalla/install-valhalla.py',
